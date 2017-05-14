@@ -1,7 +1,3 @@
----
-layout: default
----
-
 # An exhibit of Markdown
 
 This note demonstrates some of what [Markdown][1] is capable of doing.
@@ -86,4 +82,3 @@ There's actually a lot more to Markdown than this. See the official [introductio
   [3]: http://www.markitdown.net/
   [4]: http://daringfireball.net/projects/markdown/basics
   [5]: http://daringfireball.net/projects/markdown/syntax
-
