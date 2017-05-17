@@ -1,0 +1,8 @@
+<h3>
+  <a href="{{ include.post.url }}" title="{{ include.post.title }}">{{ include.post.title }}</a> »
+  <span>{{ include.post.date | date_to_string }}</span>
+</h3>
+<p>
+  {{ include.post.excerpt | remove: '<p>' | remove: '</p>' }}
+<!-- <a href="{{ include.post.url }}" title="{{ include.post.title }}"> Read More</a> -->
+</p>

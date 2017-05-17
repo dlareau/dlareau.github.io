@@ -27,6 +27,9 @@ markdown: kramdown
 theme: jekyll-theme-slate
 gems:
   - jekyll-feed
+  - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock
+
+permalink: /blog/:year/:month/:day/:title
