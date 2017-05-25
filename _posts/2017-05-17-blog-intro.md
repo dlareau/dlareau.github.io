@@ -1,6 +1,7 @@
 ---
 layout: blogpost
 title: Blog Introduction
+category: meta
 ---
 
 I guess its time to start this back up again.

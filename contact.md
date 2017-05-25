@@ -3,12 +3,16 @@ layout: default
 ---
 
 # Contact Me #
-
+{% comment %}
 ### Email (either is fine): ###
 
 JDLareau1 AT gmail DOT com
 
 DLareau AT cmu DOT edu
+{% endcomment %}
+### Email: ###
+
+JDLareau1 AT gmail DOT com
 
 ### Social Media: ###
 <div>
