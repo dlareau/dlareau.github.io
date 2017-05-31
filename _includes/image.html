@@ -2,7 +2,23 @@
 	<caption align="bottom" style="margin-top:-5px;"><i>{{ include.description }}</i></caption>
 	<tr style="padding-bottom: 0px;">
 		<td style="border:none; padding-bottom: 5px;">
-			<img class="fancybox" src="{{ include.url }}" alt="{{ include.description }}" height="{{ include.height | default: '400px' }}" title="{{include.description}}"/>
+			{% if jekyll.environment == "production" %}
+			    <img
+			    	class="fancybox"
+			    	src="http://www.dillonlareau.com/{{ include.url }}"
+			    	alt="{{ include.description }}"
+			    	height="{{ include.height | default: '400px' }}"
+			    	title="{{include.description}}"
+			    />
+			{% else %}
+			    <img
+			    	class="fancybox"
+			    	src="{{ include.url }}"
+			    	alt="{{ include.description }}"
+			    	height="{{ include.height | default: '400px' }}"
+			    	title="{{include.description}}"
+			    />
+			{% endif %}
 		</td>
 	</tr>
 </table>
