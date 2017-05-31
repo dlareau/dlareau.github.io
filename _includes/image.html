@@ -5,7 +5,7 @@
 			{% if jekyll.environment == "production" %}
 			    <img
 			    	class="fancybox"
-			    	src="http://www.dillonlareau.com/{{ include.url }}"
+			    	src="http://www.dillonlareau.com{{ include.url }}"
 			    	alt="{{ include.description }}"
 			    	height="{{ include.height | default: '400px' }}"
 			    	title="{{include.description}}"
