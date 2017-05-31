@@ -19,7 +19,14 @@ Old split site
 </ul>
 {% endcomment %}-->
 
-<h1> Blog Posts </h1>
+<h1>
+  Blog Posts
+  <a href="http://www.dillonlareau.com/feed.xml">
+    <img style= "margin: -8px; margin-left: 0px; width: 30px;"
+         src="/assets/images/social_media/rss.png" alt="RSS image"
+    />
+  </a>
+</h1>
 <ul>
   {% for post in site.posts %}
     <li>
