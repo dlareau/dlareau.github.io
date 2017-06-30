@@ -6,7 +6,7 @@ I like to make things, some software, some hardware. These are some of the thing
 
 ## Current Projects ##
 - [Discrete logic computer](/projects/p18240)
-- Puzzlehunt Server
+- [Puzzlehunt Webapp](/projects/puzzlehunt_server)
 
 ## Projects on hold ##
 - DMX over the web
