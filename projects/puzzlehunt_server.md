@@ -10,9 +10,9 @@ You can check out the public facing version at [https://www.puzzlehunt.club](htt
 
 This project started when I was handed an old server, written in Go, which didn't keep any sort of history, supported roughly 1/3 of the current features, and had to be minorly re-written for every hunt. From the pain of having to re-write it for two semesters, I decided I was going to write my own server with three main goals in mind:
 
-- The server, like the server before it, will likely outlast its creator's time at CMU, and therefore should be written in a common programming language, in a common and well tested framework, and should be able to run almost entirely without interaction with the code. I don't want this to have to be re-written when I leave because could manage it without me. 
-- The server should automate as much as physically possible about running a puzzlehunt and should make anything that isn't possible to automate easier/
-- The server will have a history of old hunts. Any person should be able to go back and view (and even play) old hunts.
+- The server, like the server before it, will likely outlast its creator's time at CMU, and therefore should be written in a common programming language, in a common and well tested framework, and should be able to run almost entirely without interaction with the code. I don't want this to have to be re-written when I leave because nobody could manage it without me. 
+- The server should automate as much as physically possible about running a puzzlehunt and should make anything that isn't possible to automate easier to do manually.
+- The server will have a history of old hunts. Any person should be able to go back and view (and even play) old puzzlehunts.
 
 <br>
 
