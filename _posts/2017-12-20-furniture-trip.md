@@ -2,6 +2,7 @@
 layout: blogpost
 title: "Getting furniture: The best 'worst' roadtrip"
 category: life
+published: false
 ---
 
 Weren't you just in connecticut?

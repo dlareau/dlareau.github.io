@@ -2,6 +2,7 @@
 layout: blogpost
 title: Blog Reboot
 category: meta
+published: false
 ---
 
 I'm alive!

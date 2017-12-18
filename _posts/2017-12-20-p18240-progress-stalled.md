@@ -2,6 +2,7 @@
 layout: blogpost
 title: "The 74XX P18240: Progress Stalled"
 category: p18240
+published: false
 ---
 
 Turns out this is harder than I initially thought.
