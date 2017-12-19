@@ -23,7 +23,7 @@ I touched a bit on this in the [3rd register post]({{"/blog/2017/05/28/p18240-re
 So there you have it, I need to solve a few things before I start this project again. I don't really feel like it would be appropriate to write the ALU post at this point in time, given how much it might change with the second issue above, but just so there is some cool content in this blog post, have a picture of the amazingly pretty current ALU schematic:
 
 {% include image.html url="/assets/images/blog/p18240-ALU-sch-v2.png"
-description="This is actually already version 2."%}
+description="This is actually already version 3."%}
 
 I hope that someday I will come back to this project, maybe I'll make it one of my goals for 2018. 
 
