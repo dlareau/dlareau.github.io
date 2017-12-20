@@ -6,7 +6,7 @@ category: puzzlehunt_server
 
 A webapp for Puzzlehunt CMU's bi-annual puzzlehunt, that serves the dual purpose of being a general purpose webpage for the club and being a webapp that manages most of the difficult aspects of running a puzzlehunt. 
 
-You can check out the public facing version at [https://www.puzzlehunt.club](https://www.puzzlehunt.club).
+You can check out the public facing version at [http://www.puzzlehunt.club](http://www.puzzlehunt.club).
 
 This project started when I was handed an old server, written in Go, which didn't keep any sort of history, supported roughly 1/3 of the current features, and had to be minorly re-written for every hunt. From the pain of having to re-write it for two semesters, I decided I was going to write my own server with three main goals in mind:
 
