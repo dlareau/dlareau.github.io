@@ -10,18 +10,16 @@ I like to make things, some software, some hardware. These are some of the thing
 ## Projects on hold ##
 - [Discrete logic computer](/projects/p18240)
 - [FPGA DMX library](/projects/FPGA_dmx)
-- DMX over the web
 
 ## Old Projects ##
 - [Weather Widget](/projects/weather_widget)
 - [Daily Walk Bot](/projects/daily_walk_bot)
-- Build 18: DMX to Neopixel translator
-- FPGA Constraint Solver
-- Cluster Counter
-- Scribe
-- Tafl Webapp
-- Virtual Reality Gloves
-- Careography
-- Mystro
-- Classity
+- [FPGA Constraint (Sudoku) Solver](/projects/fpga_sudoku_solver)
+- [Cluster Counter](/projects/cluster_counter)
+- [Scribe](https://www.ece.cmu.edu/~ece549/spring16/team02/website/)
+- [Tafl Webapp](https://github.com/dlareau/Tafl_webapp)
+- [Virtual Reality Gloves](http://www.marlenaabraham.com/LightTouch.html)
+- [Classity](https://pennapps.devpost.com/submissions/17141-classity)
+- [Careography](https://devpost.com/software/careography)
+- [Mystro](https://devpost.com/software/mystro)
 
