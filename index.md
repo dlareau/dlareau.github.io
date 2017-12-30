@@ -7,7 +7,7 @@ you have arrived at the personal website of Dillon Lareau.
 I am an electrical and computer engineer living in Pittsburgh PA, 
 specializing in embedded systems engineering and computer security.
 I am a recent graduate of Carnegie Mellon University, 
-and I am currently employed at CMU's [Software Engineering Institute](http://www.cert.org/).**
+and I am currently employed full-time at CMU's Software Engineering Institute.**
 
 In my spare time, I like to make things [(see projects)](/projects), play boardgames, 
 participate in and help run puzzlehunts, volunteer as a HAM radio operator, 
