@@ -42,4 +42,4 @@ And that is how it pretty much stayed for about a month until it went missing du
 {% include image.html url="/assets/images/blog/cluster_counter_wall.jpg"
 description="V2.0: Now with more electrons!" %} 
 
-I can't believe I thought 
+I can't believe I thought people would be reasonable about this. Within a week it was a battle between me and the computer literate members of cluster to see who could out-script the other person. On one side we had me intending to have the only incrementing of the counter done by a human clicking an HTML button, on the other side, we had people thinking it would be funny to have a script increment the counter to something like 12345. In the end, I couldn't overcome the torrent of scripters and gave in, cluster counter was the wild west for it's remaining few months in 3K. In the end, it was an overeager power supply that killed the Edison running it, and when taken out for repairs it never came back. It now suffers the same fate as many of my projects, sitting on a shelf in my workshop, waiting for a chance to be pulled out and be useful again. 
