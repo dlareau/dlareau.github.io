@@ -2,7 +2,7 @@
 layout: blogpost
 title: "The History of Cluster Counter"
 category: cluster_counter
-published: false
+published: true
 ---
 
 Humans complicate everything...
