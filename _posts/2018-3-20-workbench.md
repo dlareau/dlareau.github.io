@@ -28,6 +28,8 @@ description="Look at all that lumber." %}
 {% include image.html url="/assets/images/blog/workshop2.jpg"
 description="What a beautiful frame coming together." %}
 
+Yeah, so earlier I mentioned that the floor wasn't really level. Even the most level spot in the basement I could find, under the stairs, was still roughly 5 inches off level from corner to corner. So utilizing the years I spent building booths in CMU's parking lots, I cut some legs and in no time we had a nice level frame. On that frame, we put down some 1/2" ply and then some carpet squares
+
 {% include image.html url="/assets/images/blog/workshop3.jpg"
 description="All I know about leveling I learned from booth." %}
 
@@ -35,7 +37,7 @@ description="All I know about leveling I learned from booth." %}
 description="Gotta have a good floor." %}
 
 {% include image.html url="/assets/images/blog/workshop5.jpg"
-description="Raw plywood sucks, so we purchased salvaged carpets squares from construction junction." %}
+description="Raw plywood sucks, so we instead we get old office carpeting." %}
 
 {% include image.html url="/assets/images/blog/workshop6.jpg"
 description="Step one, draw some circles" %}
