@@ -8,14 +8,15 @@ category: ktane
 project. This is not actually a bomb, just a game replica.**
 
 
-Back in 2015, my friends and I became *obsessed* with the video game **Keep
-Talking and Nobody Explodes**. Released in July of 2015, **Keep Talking and 
-Nobody Explodes** focuses on the disarming of a virtual bomb where one player
-plays the "Defuser" and any number of players play the "Experts". There are a
-number of different "modules" that each need disarming to win. Each module has
-some component of information that is only clear to the experts. The catch is
-that the experts are physically separated from the defuser and cannot see the
-modules, making communication important. 
+Released in July of 2015, *Keep Talking and Nobody Explodes* focuses on the
+disarming of a virtual bomb where one player plays the "Defuser" and any number
+of players play the "Experts". There are a number of different "modules" that
+each need disarming to win. Each module has some component of information that
+is only clear to the experts. The catch is that the experts are physically
+separated from the defuser and cannot see the modules, making communication
+important. Shortly after release, my friends and I became obsessed with the
+game, drilling the modules until we could tackle even the hardest of bombs,
+racking up hundreds of plays.
 
 Jumping forward to 2018, in a story you can follow more in the blog posts below,
 I decided to start making a physical version of the game. The goals for this
@@ -57,6 +58,12 @@ it off breadboards)
 
 I could have missed something though, so if you know about another similar 
 project, let me know!
+
+**Did you have any help making this?**  
+I could not have made some of the physical elements of this project without the
+amazing help of my friend [Ethan Gladding](http://www.egladding.com/). He
+helped with design and manufacturing of many small aesthetic touches such as the
+acrylic backpanel and the morse module diffuser.
 
 **Are you going to make more modules?**  
 Yes, you can check out the 

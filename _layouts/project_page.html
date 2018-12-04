@@ -13,7 +13,7 @@ layout: default
     <h3> Relevant Blog Posts: </h3>
     {% for post in site.categories[page.category] %}
         <li>
-            <a href="{{ post.url }}" title="{{ post.title }}"> {{ post.title }} </a>
+            <a href="{{ post.url }}" title="{{ post.title }}">{{post.date | date_to_string}} - {{ post.title }} </a>
         </li>
     {% endfor %}
 {% endif %}
