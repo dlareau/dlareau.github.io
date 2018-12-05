@@ -43,14 +43,13 @@ blog posts at the bottom of this page and the
 
 ### FAQ ###
 **Why did you do this?**  
-Making things like these is my hobby, this project is/was just something I do
+Making things like these is my hobby, this project is just something I do
 for fun in my spare time. 
 
 **Are you going to make more than one? / Are you going to sell these?**  
-No. Unless contacted by Steel Crate Games to expressly do so, this project will
-remain one of a kind and a purely non-commercial effort. I do not own the 
-copyright for Keep Talking and Nobody Explodes and I don't feel like getting
-sued.
+No. I do not own the copyright for *Keep Talking and Nobody Explodes*. Unless
+contacted by Steel Crate Games to expressly do so, this project will remain one
+of a kind and a purely non-commercial effort. 
 
 **Has anyone else done this before?**  
 There have been a number of projects with similar goals, but all of the ones I
