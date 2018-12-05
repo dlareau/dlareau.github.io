@@ -2,7 +2,6 @@
 layout: blogpost
 title: "KTANE: Physical Edition - Project Start"
 category: ktane
-published: false
 ---
 
 Idea generation and supplies gathering

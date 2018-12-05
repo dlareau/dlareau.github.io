@@ -27,7 +27,12 @@ project are:
 
 Starting some time in June, and with a few delays, the first playable
 version was finished at the end of November, just in time for me to bring it to 
-PAX Unplugged to show it off:
+PAX Unplugged to show it off.
+
+<div style="text-align: center;">
+	<div><i> Gallery: </i></div>
+	<blockquote class="imgur-embed-pub" lang="en" data-id="a/J6HdM0v"><a href="//imgur.com/J6HdM0v">Keep Talking and Nobody Explodes - Physical Edition</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+</div>
 
 {% include tweet.html 
 url="https://twitter.com/DLareau22/status/1069002815647952896" description="" %}
@@ -86,7 +91,7 @@ handled through a web interface run by an ESP8266 connected to the controller
 module.
 
 ---
-Final disclaimer:  
+Disclaimer:  
 I am not endorsed by, directly affiliated with, 
 maintained, authorized, or sponsored by Steel Crate Games.
 
