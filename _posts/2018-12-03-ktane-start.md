@@ -107,9 +107,8 @@ briefcase. I really lucked out by finding what was basically a perfectly sized
 briefcase (with working latches and everything) at a local recyling based craft
 store called Creative Reuse.
 
-{% include image.html url="/assets/images/blog/ktane_1.jpg"
-description="The case with the dividers, unfortunately I forgot to take a
-photo of the case in it's original state."%}
+{% include image.html url="/assets/images/blog/ktane_suitcase.jpg"
+description="Perfect for this project!"%}
 
 Now that the parts were gathered and the first round of fitting was underway, it
 was time to start the coding. Continued in a future post.

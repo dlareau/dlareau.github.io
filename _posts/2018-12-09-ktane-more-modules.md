@@ -1,6 +1,6 @@
 ---
 layout: blogpost
-title: "KTANE: Physical Edition - Road to V1"
+title: "KTANE: Physical Edition - The basics"
 category: ktane
 published: false
 ---
@@ -15,14 +15,9 @@ Talking and Nobody Explodes* you should check out either the
 [project page](/projects/KTANE_physical) or the 
 [announcement post](/blog/2018/07/07/ktane).
 
-### Modularity ###
-- oh shit, I2c
-
-### Communication ###
-
-
-### First Modules ###
-
+This post is going to be long and jump around a bit, covering various aspects of
+coding, manufacturing, and debugging I went through on the way to version 1 and
+its showcase at PAX Unplugged.
 
 ### Debugging/Issues ###
 
