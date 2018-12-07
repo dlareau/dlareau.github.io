@@ -27,7 +27,12 @@ project are:
 
 Starting some time in June, and with a few delays, the first playable
 version was finished at the end of November, just in time for me to bring it to 
-PAX Unplugged to show it off:
+PAX Unplugged to show it off.
+
+<div style="text-align: center;">
+	<div><i> Gallery: </i></div>
+	<blockquote class="imgur-embed-pub" lang="en" data-id="a/J6HdM0v"><a href="//imgur.com/J6HdM0v">Keep Talking and Nobody Explodes - Physical Edition</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+</div>
 
 {% include tweet.html 
 url="https://twitter.com/DLareau22/status/1069002815647952896" description="" %}
@@ -38,14 +43,13 @@ blog posts at the bottom of this page and the
 
 ### FAQ ###
 **Why did you do this?**  
-Making things like these is my hobby, this project is/was just something I do
+Making things like these is my hobby, this project is just something I do
 for fun in my spare time. 
 
 **Are you going to make more than one? / Are you going to sell these?**  
-No. Unless contacted by Steel Crate Games to expressly do so, this project will
-remain one of a kind and a purely non-commercial effort. I do not own the 
-copyright for Keep Talking and Nobody Explodes and I don't feel like getting
-sued.
+No. I do not own the copyright for *Keep Talking and Nobody Explodes*. Unless
+contacted by Steel Crate Games to expressly do so, this project will remain one
+of a kind and a purely non-commercial effort. 
 
 **Has anyone else done this before?**  
 There have been a number of projects with similar goals, but all of the ones I
@@ -86,7 +90,7 @@ handled through a web interface run by an ESP8266 connected to the controller
 module.
 
 ---
-Final disclaimer:  
+Disclaimer:  
 I am not endorsed by, directly affiliated with, 
 maintained, authorized, or sponsored by Steel Crate Games.
 
