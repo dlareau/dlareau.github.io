@@ -2,7 +2,6 @@
 layout: blogpost
 title: "KTANE: Physical Edition - Road to PAX"
 category: ktane
-published: false
 ---
 
 A computer scientist’s main challenge is not to get confused by the complexities of their own making. -Dijkstra
@@ -189,7 +188,7 @@ url="https://twitter.com/DLareau22/status/1069063126274981893" %}
 I really enjoyed being able to show it off, and the reactions I got from people
 at the convention definitely made the whole effort worth it. 
 
-### The future ###
+### The Future ###
 
 Development continues! I've mostly been working on these blog posts and
 other things since PAX, but now that I'm up to date, expect to see more work on
