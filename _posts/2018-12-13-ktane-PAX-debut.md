@@ -43,8 +43,7 @@ at making a custom protocol layer in Saleae's software I gave up due to the
 complexity needed just to get off the ground. Looking around at other
 alternatives I noticed sigrok and in particular their easy to use protocol
 framework. Less than 2 hours later I had a first version of the 
-[DSerial sigrok decoder]
-(https://github.com/dlareau/KTANE-physical/tree/master/sigrok/dserial_decoder). 
+[DSerial sigrok decoder](https://github.com/dlareau/KTANE-physical/tree/master/sigrok/dserial_decoder). 
 
 {% include image.html url="/assets/images/blog/ktane_sigrok.jpg"
 description="Clearly labeled information."%}
