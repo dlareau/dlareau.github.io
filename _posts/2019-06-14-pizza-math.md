@@ -259,13 +259,135 @@ With those in place, the program is able to score more than 100,000 pizzas per
 second, but that still won't allow us to compute all 137 Billion of P(18,6).
 
 ###### Solution #3 ######
+
 Which brings us to solution #3. The problem with solution #2 was that it had
 duplicates with regards to the ordering of the groups. To fix that we just have
-to specify and enforce an ordering of the groups.
+to specify and enforce an ordering of the groups, ensuring that there is exactly
+one valid way to represent each grouping. The new algorithm is as follows:
+- Start by person that comes first alphabetically in the first position in the
+first group.
+- For every other spot in each group, try inserting each person one by one,
+skipping people who have already been inserted.
+- If this is the first position in a group, only insert the person if they come
+after the first person in the previous group alphabetically
+- If this is not the first position in a group, only insert the person if they
+come after the previous person in the group alphabetically
+- Once a person is inserted, recurse to the next position.
+- If all spots have been filled, that is a possible grouping
+
+This will generate all possible groupings and only generate each possible
+grouping exactly once. There are a number of short circuit mechanisms and
+heuristics that can make things go faster than exactly following the above steps
+but those are just implementation details.
+
+###### Solution #3's Size ######
+
+We're going to cheat a bit on this step and rather than derive the formula
+for the number of possible groupings from the method we're just going to say
+that because this method generates the same number of groups as the last method
+but without the $$k!$$ duplicates for each group. So we get:
+
+$$ \frac{n!}{(\frac{n}{k}!)^k} * \frac{1}{k!} = \frac{n!}{k!(\frac{n}{k}!)^k}
+$$
+
+###### The Odd Cases ######
+
+You might have noticed that up until now I've been conveniently avoiding talking
+about numbers of groups that don't evenly divide the number of people. All of
+the generating methods up until now will work when given a set of not equally
+split groups. What won't work is the size calculations.
+
+The size calculations for solutions 2 and 3 rely on the fact that 
+$$\frac{n}{k}$$ is an integer. I had an efficient working way to generate the
+groupings, I could just stop now, the pizza app would work just fine. But I
+couldn't do that, I was already too curious.
+
+###### Solution #3's \*Actual\* Size ######
+
+So the first thing to mention is that there is basically no material that I can
+find on the subject of evenly dividing n items into k groups. Hundreds of forum
+and stackexchange posts on dividing n items unevenly into k groups, basically
+nothing I could find about dividing into groups evenly. The closest I got was
+[this sequence](http://oeis.org/A060540) in the On-line Encyclopedia of Integer
+Sequences, which describes the result we just got above for when **k** evenly
+divides **n**. If I wanted to know this, I was going to have to do it myself. 
+
+I'll spare you the failed conjectures I thought of in the 5 or so hours I spent
+staring at and working through examples figuring out the correct answer and just
+jump straight into the logic behind my final answer.
+
+When **n** is not evenly divisible by **k**, when dividing the people into
+the groups as evenly as possible we'll end up with some number of "smaller"
+groups and some number of "larger" groups where the larger groups each have one
+more person than the smaller groups. For example, dividing **10** people into
+**4** groups would result in two larger groups and two smaller groups with the
+larger groups having three people and the smaller groups having two people.
+
+The key realization here is that because the possible re-orderings of groups are
+separate between the set of larger groups and the set of smaller groups it is
+possible to split the problem into two sub problems. Lets define some terms:
+
+$$
+\begin{aligned}
+A &= n \bmod k & \text{(number of large groups)}\\
+B &= k - (n \bmod k) = k - A & \text{(number of small groups)}\\
+g_a &= \Bigl\lceil\frac{n}{k}\Bigr\rceil & \text{(group size for large
+groups)}\\
+g_b &= \Bigl\lfloor\frac{n}{k}\Bigr\rfloor & \text{(group size for small
+groups)}\\
+n &= A * g_a + B * g_b\\
+\end{aligned}
+$$
+
+So when the groups don't divide evenly, first choose $$B * g_b$$ of the n
+people. Then for each of set of $$B * g_b$$ people you find all of the groupings
+of that separate people into $$B$$ equally sized groups of $$g_b$$ people each.
+Then for the remaining $$A * g_a$$ people, you find all of the groupings that
+separate people into $$A$$ equally sized groups of $$g_a$$ people each. Combine
+each grouping from the first step with each grouping from the second step,
+repeat for each choice of $$B * g_b$$ people and you have all possible groups
+with no duplicates.
 
 
+To state it more mathematically:
 
+$$
+P(n,k) = \left\{
+\begin{aligned}
+&n \bmod k = 0 :& \frac{n!}{k!(\frac{n}{k}!)^k}\\
+& n \bmod k \neq 0 :& {n \choose B*g_b} * P(B*g_b,B) * P(A * g_a,A)
+\end{aligned}
+\right.
+$$
 
+And because we can guarantee that for both instances of P(n,k) in the bottom
+part of the function defined above **k** divides **n** evenly, we can just
+substitute in the top part of the above formula and get a unifying formula for
+all **n** and **k**.
 
+$$
+\require{enclose}
+\begin{eqnarray}
+P(n,k) &=& {n \choose B * g_b} * P(B * g_b,B) * P(A * g_a,A) \\[10pt]
+       &=& {n \choose B * g_b} * \frac{(B * g_b)!}{B! * (\frac{B * g_b}{B}!)^B} *
+       \frac{(A * g_a)!}{A! * (\frac{A * g_a}{A}!)^A}\\[10pt]
+       &=& \frac{n!}{(B * g_b)! (n - (B * g_b))!} * 
+       \frac{(B * g_b)!}{B! * (\frac{B * g_b}{B}!)^B} *
+       \frac{(A * g_a)!}{A! * (\frac{A * g_a}{A}!)^A}\\[10pt]
+       &=& \frac{n!}{(B * g_b)! (n - (B * g_b))!} * 
+       \frac{(B * g_b)!}{B! * g_b!^B} * \frac{(A * g_a)!}{A! * g_a!^A}\\[10pt]
+       &=& \frac{n!}{(B * g_b)! (A * g_a)!} * 
+       \frac{(B * g_b)!}{B! * g_b!^B} * \frac{(A * g_a)!}{A! * g_a!^A}\\[10pt]
+       &=& \frac{n!}{B! * g_b!^B * A! * g_a!^A}\\[10pt]
+       &=& \frac{n!}{A! * B! * g_a!^A * g_b!^B}\\[10pt]
+       &=& \frac{n!}{(n \bmod k)! * (k - n \bmod k)! * 
+       \bigl\lceil\frac{n}{k}\bigr\rceil!^{(n \bmod k)} * 
+       \bigl\lfloor\frac{n}{k}\bigr\rfloor!^{(k - n \bmod k)}}\\[10pt]
+\end{eqnarray}
+$$
+
+Again, not the prettiest of formulas but I'm not sure that there is any further
+way to simplify this. Personally, when writing it out I prefer defining A and B
+off to the side and then just writing the second to last line from above.
 
 \-Dillon
