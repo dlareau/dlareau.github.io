@@ -3,7 +3,6 @@ layout: blogpost
 title: "Adventures into pizza math"
 category: pizza_math
 mathjax: true
-published: false
 ---
 
 {% include mathjax.html %}
@@ -11,7 +10,7 @@ published: false
 A tale of a simple pizza wish that falls down a math and optimization rabbit
 hole.
 
-#### The Application ####
+### The Application ###
 
 Don't worry, we'll get to the math soon enough, just have to give some
 background first.
@@ -31,7 +30,9 @@ That afternoon I went home and immediately started writing the "Pizza Solver".
 The goal was simple: Take in everyone's preferences and the number of pizzas
 desired and output the ideal groupings of people to maximize topping overlap.
 After a bit of infrastructure work to get it hosted on my personal server and
-register it under a cute domain ending in .pizza it was up and working!
+register it under a cute domain ending in .pizza it was up and working! [You can
+play with a public version here](http://jlareau.club.cc.cmu.edu:8081). (The
+names have been replaced for my friends' sake.)
 
 {% include image.html url="/assets/images/blog/pizza_homepage.png"
 description="The homepage, clean and simple." %}
@@ -67,7 +68,7 @@ in use a few times during that year as small events needed pizza. But there was
 a monster of an implementation detail lurking under the surface waiting till
 the next time we helped someone move to rear its head.
 
-#### The Math ####
+### The Math ###
 
 Lets take a step back and look at some of the math behind the impending issue.
 In order to present the best possible grouping, we must first find and score all
@@ -108,7 +109,7 @@ and then become
 (C,B) (D,A) (E,F)
 ...
 ```
-This solution technically works, but as you can even see form this relatively
+This solution technically works, but as you can even see from this relatively
 small example that it generates a bunch of useless duplicate groups. For our
 purposes we don't need both
 
@@ -120,7 +121,7 @@ Just one of them will suffice, which brings us to our second solution.
 
 Because we don't care about ordering, we should instead be looking at
 combinations instead of permutations. A different way to look at the problem is
-to instead select the groups group by group. To do this for 6 people into 3
+to instead select people group by group. To do this for 6 people into 3
 groups we'd first get every way to choose 2 of the 6 people.
 
 ```
@@ -134,10 +135,10 @@ groups we'd first get every way to choose 2 of the 6 people.
 ...
 ```
 
-That becomes our first group. For each group in the first set we then apply the
-same logic to the remaining letters. So for the group ```(A,B)``` we have
-```C,D,E,F``` left over. We again get every way to get choose 2 of the now 4
-people and add that group to ```(A,B)```. Again we get something like:
+That becomes our set of first groups. For each group in that set we then
+apply the same logic to the remaining letters. So for the group ```(A,B)``` we
+have ```C,D,E,F``` left over. We again get every way to get choose 2 of the now
+4 people and add that group to ```(A,B)```. Again we get something like:
 
 ```
 (A,B) (C,D)
@@ -171,7 +172,7 @@ in the form of
 I didn't notice this back when I first wrote it and so as far as I was concerned
 this solution was optimal and got left alone for a year.
 
-#### That Lurking Problem ####
+### That Lurking Problem ###
 
 So that problem I mentioned earlier... The logic in the program when it was
 first written was to generate all of the groups and then go through and score
@@ -244,10 +245,14 @@ One Hundred and Thirty Seven BILLION.
 Combine that with the fact that the program was written in python and the
 scoring function wasn't perfectly optimized means that there was no way a
 request for 18 people and 6 pizzas was ever going to give a solution that day.
+So when we were all done moving I heard to my surprise that the pizza app had
+failed and that they just ordered some pizzas that would probably be good. Stuck
+with mediocre pizza choices again, I vowed to fix the pizza app once and for all
+that weekend.
 
-#### Fixing It ####
+### Fixing It ###
 
-So a number of fixes were implemented immediately to make scoring the groupings
+A number of fixes were implemented immediately to make scoring the groupings
 faster:
 - Generate common sets such as which toppings a person is okay with once for
 each person at the start and not each time.
@@ -255,8 +260,8 @@ each person at the start and not each time.
 - Use memoization to ensure that the score for each group of people is only
 computed once.
 
-With those in place, the program is able to score more than 100,000 pizzas per
-second, but that still won't allow us to compute all 137 Billion of P(18,6).
+With those in place, the program is able to score more than 100,000 groupings
+per second, but that still won't allow us to compute all 137 Billion of P(18,6).
 
 ###### Solution #3 ######
 
@@ -287,20 +292,36 @@ for the number of possible groupings from the method we're just going to say
 that because this method generates the same number of groups as the last method
 but without the $$k!$$ duplicates for each group. So we get:
 
-$$ \frac{n!}{(\frac{n}{k}!)^k} * \frac{1}{k!} = \frac{n!}{k!(\frac{n}{k}!)^k}
-$$
+$$ P(n,k) = \frac{n!}{(\frac{n}{k}!)^k} * \frac{1}{k!} =
+\frac{n!}{k!(\frac{n}{k}!)^k}$$
 
-###### The Odd Cases ######
+Now $$P(18,6) = 190{,}590{,}400 $$, which could actually be computed in some
+reasonable time (30 minutes) if you really wanted to check all of them. But that
+time doesn't cut it for loading a web page.
+
+###### Surrendering to the numbers ######
+
+The nasty part about this problem being exponentially hard is that even if I
+could speed things up to make $$P(18,6)$$ reasonable for a webpage, P(24,6)
+would still be just as unreasonable. I had to come up with a solution that would
+work no matter how many people or pizzas were requested. So I gave up on finding
+the \*perfect\* pizza in those cases and instead just find the best pizza from
+the first 1 million generated groupings. Thanks to the new recursive algorithm,
+any time I get to the base case and find a valid possible grouping I check it,
+and record it if it beats the current best. Now the webpage will almost
+always load in under 30 seconds even for the most taxing queries.
+
+### The Odd Cases ###
 
 You might have noticed that up until now I've been conveniently avoiding talking
 about numbers of groups that don't evenly divide the number of people. All of
 the generating methods up until now will work when given a set of not equally
-split groups. What won't work is the size calculations.
+split groups. What won't work is the size calculations. The size calculations
+for solutions 2 and 3 rely on the fact that $$\frac{n}{k}$$ is an integer.
 
-The size calculations for solutions 2 and 3 rely on the fact that 
-$$\frac{n}{k}$$ is an integer. I had an efficient working way to generate the
-groupings, I could just stop now, the pizza app would work just fine. But I
-couldn't do that, I was already too curious.
+I had an efficient working way to generate the groupings, I could just stop now,
+the pizza app would work just fine. But I couldn't do that, I was already too
+curious.
 
 ###### Solution #3's \*Actual\* Size ######
 
@@ -310,7 +331,7 @@ and stackexchange posts on dividing n items unevenly into k groups, basically
 nothing I could find about dividing into groups evenly. The closest I got was
 [this sequence](http://oeis.org/A060540) in the On-line Encyclopedia of Integer
 Sequences, which describes the result we just got above for when **k** evenly
-divides **n**. If I wanted to know this, I was going to have to do it myself. 
+divides **n**. If I wanted to know this, I was going to have to do it myself.
 
 I'll spare you the failed conjectures I thought of in the 5 or so hours I spent
 staring at and working through examples figuring out the correct answer and just
@@ -361,7 +382,7 @@ P(n,k) = \left\{
 $$
 
 And because we can guarantee that for both instances of P(n,k) in the bottom
-part of the function defined above **k** divides **n** evenly, we can just
+part of the function defined above that **k** divides **n** evenly, we can just
 substitute in the top part of the above formula and get a unifying formula for
 all **n** and **k**.
 
@@ -371,23 +392,36 @@ $$
 P(n,k) &=& {n \choose B * g_b} * P(B * g_b,B) * P(A * g_a,A) \\[10pt]
        &=& {n \choose B * g_b} * \frac{(B * g_b)!}{B! * (\frac{B * g_b}{B}!)^B} *
        \frac{(A * g_a)!}{A! * (\frac{A * g_a}{A}!)^A}\\[10pt]
-       &=& \frac{n!}{(B * g_b)! (n - (B * g_b))!} * 
+       &=& \frac{n!}{(B * g_b)! (n - (B * g_b))!} *
        \frac{(B * g_b)!}{B! * (\frac{B * g_b}{B}!)^B} *
        \frac{(A * g_a)!}{A! * (\frac{A * g_a}{A}!)^A}\\[10pt]
-       &=& \frac{n!}{(B * g_b)! (n - (B * g_b))!} * 
+       &=& \frac{n!}{(B * g_b)! (n - (B * g_b))!} *
        \frac{(B * g_b)!}{B! * g_b!^B} * \frac{(A * g_a)!}{A! * g_a!^A}\\[10pt]
-       &=& \frac{n!}{(B * g_b)! (A * g_a)!} * 
+       &=& \frac{n!}{(B * g_b)! (A * g_a)!} *
        \frac{(B * g_b)!}{B! * g_b!^B} * \frac{(A * g_a)!}{A! * g_a!^A}\\[10pt]
        &=& \frac{n!}{B! * g_b!^B * A! * g_a!^A}\\[10pt]
        &=& \frac{n!}{A! * B! * g_a!^A * g_b!^B}\\[10pt]
-       &=& \frac{n!}{(n \bmod k)! * (k - n \bmod k)! * 
-       \bigl\lceil\frac{n}{k}\bigr\rceil!^{(n \bmod k)} * 
+       &=& \frac{n!}{(n \bmod k)! * (k - n \bmod k)! *
+       \bigl\lceil\frac{n}{k}\bigr\rceil!^{(n \bmod k)} *
        \bigl\lfloor\frac{n}{k}\bigr\rfloor!^{(k - n \bmod k)}}\\[10pt]
 \end{eqnarray}
 $$
 
 Again, not the prettiest of formulas but I'm not sure that there is any further
-way to simplify this. Personally, when writing it out I prefer defining A and B
-off to the side and then just writing the second to last line from above.
+way to simplify this. Personally, when writing it out I prefer defining $$A$$
+and $$B$$ off to the side and then just writing the second to last line from
+above.
+
+###### Results and Future Work######
+
+I have submitted the new sequence to the OEIS, and pending the approval
+process it will be [A308624](https://oeis.org/A308624). Hopefully this work
+finds its way to someone else looking for this problem at some point in the
+future.
+
+The only real place to go from here would be to account for how much pizza each
+person wants to eat when deciding the groups, but I'm pretty sure that just
+becomes equivalent to the bin packing problem but worse, which I don't care to
+deal with just yet.
 
 \-Dillon
