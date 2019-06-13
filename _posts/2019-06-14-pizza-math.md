@@ -5,10 +5,10 @@ category: pizza_math
 mathjax: true
 ---
 
-{% include mathjax.html %}
-
 A tale of a simple pizza wish that falls down a math and optimization rabbit
 hole.
+
+{% include mathjax.html %}
 
 ### The Application ###
 
