@@ -269,8 +269,8 @@ Which brings us to solution #3. The problem with solution #2 was that it had
 duplicates with regards to the ordering of the groups. To fix that we just have
 to specify and enforce an ordering of the groups, ensuring that there is exactly
 one valid way to represent each grouping. The new algorithm is as follows:
-- Start by person that comes first alphabetically in the first position in the
-first group.
+- Start by putting the person that comes first alphabetically in the first
+position in the first group.
 - For every other spot in each group, try inserting each person one by one,
 skipping people who have already been inserted.
 - If this is the first position in a group, only insert the person if they come
