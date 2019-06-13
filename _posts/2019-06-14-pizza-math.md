@@ -76,7 +76,7 @@ possible groupings. Putting scoring aside for a moment, first we have to
 generate every possible group. There are a number of ways to go about this, and
 I'll present the ones I iterated through in the order I thought of them.
 
-##### The Problem Statement#####
+##### The Problem Statement #####
 
 Generate all possible groupings of **n** people into **k** groups where the
 groups are as evenly sized as possible. (We don't care about wildly uneven
@@ -412,7 +412,7 @@ way to simplify this. Personally, when writing it out I prefer defining $$A$$
 and $$B$$ off to the side and then just writing the second to last line from
 above.
 
-###### Results and Future Work######
+###### Results and Future Work ######
 
 I have submitted the new sequence to the OEIS, and pending the approval
 process it will be [A308624](https://oeis.org/A308624). Hopefully this work
